@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
-
+import org.openqa.selenium.JavascriptExecutor;
 
 public class createAccount {
 
@@ -74,12 +74,7 @@ public class createAccount {
 			
 			pass.sendKeys("Jagu11324");
 			
-			try {
-				Thread.sleep(5000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			
 			
 			
 			WebElement showPassEye = driver.findElement(By.xpath("//em[@id='eyeiconNew' and @class='eye-icon']"));
@@ -141,23 +136,36 @@ public class createAccount {
 				e.printStackTrace();
 			}
 			
-//			WebElement radioBtn = driver.findElement(By.xpath("//input[contains(@name,'gender')]"));
-//			
-//			Select selectbtn = new Select(radioBtn);
-//			
-//			selectbtn.deselectAll();
-//			
-//			List<WebElement> selected = selectbtn.getAllSelectedOptions();
-//			
-//			for(WebElement abc : selected) {
-//				String aaa = abc.getText();
-//				System.out.println("selectedText"+aaa);
-//			}
+			List <WebElement> radioBtn = driver.findElements(By.xpath("//input[contains(@name,'gender')]"));
 			
-
+			for(WebElement radio : radioBtn) {
+				if(radio.isSelected()) {
+					System.out.println("selected radio button : "+radio.getDomProperty("value"));
+				}
+			}
 			
-		} 
+			JavascriptExecutor js = (JavascriptExecutor) driver;      
 		
+//			js.executeScript("arguments[0].removeAttribute('checked');", radioBtn);   // not a correct way -- we should not remove radiobuttons
+			
+			
+			WebElement selectCountry = driver.findElement(By.id("country"));
+			
+			Select selectCntry = new Select(selectCountry);
+			
+			WebElement selectedCountry = selectCntry.getFirstSelectedOption();
+			
+				System.out.println("selected county : "+selectedCountry.getText());
+			
+			
+			
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} 
 		
 		
 		
