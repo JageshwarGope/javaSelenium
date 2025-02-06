@@ -161,6 +161,14 @@ public class createAccount {
 			
 				System.out.println("selected county : "+selectedCountry.getText());
 			
+			WebElement selectCityDropdown = driver.findElement(By.xpath("//select[contains(@name,'city')]"));
+			
+			Select selectCity = new Select(selectCityDropdown);
+			
+			selectCity.selectByVisibleText("Bokaro");
+			
+			
+			
 			
 			
 			try {
