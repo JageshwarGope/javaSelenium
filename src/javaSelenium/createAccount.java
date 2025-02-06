@@ -144,12 +144,16 @@ public class createAccount {
 				}
 			}
 			
-			JavascriptExecutor js = (JavascriptExecutor) driver;      
+	     
+			JavascriptExecutor js = (JavascriptExecutor) driver;
+			
 		
 //			js.executeScript("arguments[0].removeAttribute('checked');", radioBtn);   // not a correct way -- we should not remove radiobuttons
 			
 			
 			WebElement selectCountry = driver.findElement(By.id("country"));
+			
+			js.executeScript("arguments[0].scrollIntoView(true);", selectCountry);
 			
 			Select selectCntry = new Select(selectCountry);
 			
