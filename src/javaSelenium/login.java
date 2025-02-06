@@ -60,14 +60,14 @@ public class login {
 		
 		System.out.println(actualTextString);
 		
-		WebElement createAccountLink = driver.findElement(By.xpath("//a[@title='Create new Rediffmail account']"));
+		
 	
 //		if(actualTextString.equalsIgnoreCase(expectedTextString)) {
 //			createAccountLink.click();
 //		}
 		
-		Assert.assertEquals("Error message validation", actualTextString, "Wrong username and password combination.");
-		createAccountLink.click();
+		Assert.assertEquals("Error login message validation", actualTextString, "Wrong username and password combination.");
+
 		
 		Thread.sleep(10000);
 		

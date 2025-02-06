@@ -11,12 +11,19 @@
     <version>4.28.1</version>
 </dependency>
 <!-- https://mvnrepository.com/artifact/org.testng/testng -->
+<!-- https://mvnrepository.com/artifact/org.testng/testng -->
 <dependency>
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
-    <version>7.10.2</version>
+    <version>7.10.1</version>
     <scope>test</scope>
 </dependency>
+
+  	<dependency>
+  		<groupId>Amazon</groupId>
+  		<artifactId>Amazon</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
   </dependencies>
   <build>
     <sourceDirectory>src</sourceDirectory>
