@@ -56,15 +56,20 @@ public class createAccount {
 			
 			checkMailAvailability.click();
 			
-			try {
-				Thread.sleep(5000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 			
 			
-			WebElement reccMailOption = driver.findElement(By.xpath("//div[@id='recommend_text']//tr[1]//input"));
+//			try {
+//				Thread.sleep(5000);
+//			} catch (InterruptedException e) {
+//				// TODO Auto-generated catch block
+//				e.printStackTrace();
+//			}
+			
+			WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+			
+//			WebElement reccMailOption = driver.findElement(By.xpath("//div[@id='recommend_text']//tr[1]//input"));
+			
+			WebElement reccMailOption = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//div[@id='recommend_text']//tr[1]//input")));
 			
 			reccMailOption.click();
 			
