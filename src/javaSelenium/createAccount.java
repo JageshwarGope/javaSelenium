@@ -1,5 +1,9 @@
 package javaSelenium;
 
+import java.io.File;
+import java.io.IOException;
+
+import org.apache.commons.io.FileUtils;
 import java.time.Duration;
 import java.util.List;
 
@@ -14,6 +18,8 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 
 public class createAccount {
 
@@ -37,7 +43,7 @@ public class createAccount {
 		
 		
 		@Test
-		public void createAcc() {
+		public void createAcc() throws IOException {
 			WebElement createAccountLink = driver.findElement(By.xpath("//a[@title='Create Rediffmail Account']"));
 			
 			createAccountLink.click();
@@ -173,7 +179,13 @@ public class createAccount {
 			selectCity.selectByVisibleText("Bokaro");
 			
 			
+			TakesScreenshot ts = (TakesScreenshot) driver;
 			
+			File srcFile = ts.getScreenshotAs(OutputType.FILE);
+			
+			File destFile = new File("screenshot.png");
+			
+			FileUtils.copyFile(srcFile,destFile);
 			
 			
 			try {
