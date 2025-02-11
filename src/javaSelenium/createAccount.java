@@ -2,9 +2,11 @@ package javaSelenium;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 
 import org.apache.commons.io.FileUtils;
 import java.time.Duration;
+import java.util.Date;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -185,8 +187,25 @@ public class createAccount {
 			
 			File destFile = new File("screenshot.png");
 			
+			
 			FileUtils.copyFile(srcFile,destFile);
 			
+	//		File destFile = new File("C:/Users/YourName/Desktop/screenshot.png"); // save in specific folder
+			
+	//		You can create a screenshots folder inside your project and save files there:
+	//		File destFile = new File("screenshots/screenshot.png");
+			
+//			Save Screenshot with a Timestamp (To Avoid Overwriting)
+//			Each time the test runs, a new screenshot will be saved with a unique timestamp:
+//				
+//			String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+//			File destFile = new File("screenshots/screenshot_" + timestamp + ".png");
+			
+			String timestamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+			
+			File destFileWithTime = new File("Screenshots/screenshot_"+ timestamp +".png");
+			
+			FileUtils.copyFile(srcFile, destFileWithTime);
 			
 			try {
 				Thread.sleep(5000);
